@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyler McFarland | Aerospace Engineering Portfolio</title>
+
+<style>
+/* ===== RESET ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ===== COLOR SYSTEM ===== */
+:root {
+    --primary: #2563eb;
+    --secondary: #38bdf8;
+    --bg-dark: #020617;
+    --text-dark: #1f2937;
+    --text-light: #e5e7eb;
+    --muted: #94a3b8;
+}
+
+/* ===== GLOBAL ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background: var(--bg-dark);
+    overflow-x: hidden;
+}
+
+/* ===== BLURRED GRADIENT BACKGROUND ===== */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: -1;
+    filter: blur(120px);
+    opacity: 0.75;
+}
+
+body::before {
+    background:
+        radial-gradient(circle at 20% 30%, #2563eb 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, #38bdf8 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, #1e293b 0%, transparent 50%);
+}
+
+body::after {
+    background:
+        radial-gradient(circle at 70% 70%, #0f172a 0%, transparent 50%),
+        radial-gradient(circle at 30% 60%, #312e81 0%, transparent 45%);
+    opacity: 0.6;
+}
+
+/* ===== NAV ===== */
+nav {
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--text-light);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 15px;
+    padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+    color: var(--text-light);
+}
+
+/* ===== MAIN ===== */
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 20px;
+}
+
+/* ===== SECTION CARDS ===== */
+.page {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 55px;
+    border-radius: 14px;
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.25),
+        0 0 0 1px rgba(15, 23, 42, 0.05);
+    backdrop-filter: blur(6px);
+    margin-bottom: 120px;
+    scroll-margin-top: 120px;
+}
+
+.page::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 1px;
+    margin: 80px auto 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--secondary),
+        transparent
+    );
+    opacity: 0.6;
+}
+
+.page:last-of-type::after {
+    display: none;
+}
+
+
+/* ===== HEADINGS ===== */
+h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary);
+    padding-left: 14px;
+}
+
+h3 {
+    margin-top: 26px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* ===== HOME ===== */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero img {
+    width: 125px;
+    height: 188px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    margin-bottom: 18px;
+}
+
+.subtitle {
+    color: #475569;
+    font-size: 16px;
+}
+
+/* ===== LISTS ===== */
+ul {
+    margin-left: 18px;
+    margin-top: 10px;
+}
+
+ul li {
+    margin-bottom: 6px;
+}
+
+/* ===== SKILLS ===== */
+.skill {
+    margin-bottom: 22px;
+}
+
+.skill-bar {
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    margin-top: 6px;
+}
+
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 6px;
+}
+
+/* ===== PROJECTS ===== */
+.project {
+    border-left: 4px solid var(--primary);
+    padding-left: 18px;
+    margin-bottom: 32px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 30px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">Tyler McFarland</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+
+<section id="home" class="page">
+    <div class="hero">
+        <img src="images/me.png" alt="Profile">
+        <h1>Tyler McFarland</h1>
+        <p class="subtitle">
+            Aspiring Aerospace Engineer | Physics • Programming • Space Systems
+        </p>
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+        I am a high school student passionate about aerospace engineering,
+        with interests in aircraft dynamics, propulsion systems, and
+        computational modeling. This portfolio highlights my academic
+        preparation and engineering projects.
+    </p>
+</section>
+
+<section id="about" class="page">
+    <h2>About Me</h2>
+    <p>
+        My interest in aerospace engineering comes from STEM skills and the application of physics and mathematics to
+        real-world engineering challenges.
+    </p>
+
+    <h3>Engineering Interests</h3>
+    <ul>
+        <li>Orbital Mechanics and Trajectory Design</li>
+        <li>Rocket Propulsion Systems</li>
+        <li>Flight Dynamics and Stability</li>
+        <li>Numerical Simulation and Modeling</li>
+    </ul>
+</section>
+
+<section id="skills" class="page">
+    <h2>Technical Skills</h2>
+
+    <div class="skill">
+        <strong>Python (Scientific Computing)</strong>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width:90%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <strong>C++ (Simulation & Algorithms)</strong>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width:85%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <strong>MATLAB (Modeling & Control)</strong>
+        <div class="skill-bar">
+            <div class="skill-fill" style="width:75%"></div>
+        </div>
+    </div>
+
+    <h3>Tools & Technologies</h3>
+    <p>
+        NumPy, SciPy, Matplotlib, Git/GitHub, Arduino, Simulink, HTML/CSS
+    </p>
+</section>
+
+<section id="projects" class="page">
+    <h2>Engineering Projects</h2>
+
+    <div class="project">
+        <h3>Orbital Mechanics Simulation</h3>
+        <p>
+            Developed a Python simulation modeling satellite orbits using
+            numerical integration and classical mechanics.
+        </p>
+    </div>
+
+    <div class="project">
+        <h3>Model Rocket Flight Computer</h3>
+        <p>
+            Designed and programmed a microcontroller-based system to log
+            altitude and acceleration during rocket flights.
+        </p>
+    </div>
+</section>
+
+<section id="education" class="page">
+    <h2>Education</h2>
+    <p>
+        <strong>High School Diploma (Expected 2026)</strong><br>
+        Physics, Calculus, Computer Science
+    </p>
+</section>
+
+<section id="contact" class="page">
+    <h2>Contact</h2>
+    <p>Email: your.email@example.com</p>
+    <p><a href="resume.pdf">Download Resume (PDF)</a></p>
+</section>
+
+</main>
+
+<footer>
+    © 2026 Tyler McFarland — Aerospace Engineering Portfolio
+</footer>
+
+</body>
+</html>
